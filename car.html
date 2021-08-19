@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>car_details</title>
+	</head>
+	<body>
+        <!-- <img src="car_lm.jpg", alt="lightning mcqueen", style="width: 100%;height: 100%;"/> -->
+        <div id='d1'>Car Number: 
+            <input type="text" id="in1" name="fname" placeholder="number plate" /><br><br>
+        </div>
+        <pre>
+        <textarea id='t1' placeholder="output"></textarea>
+        </pre>
+        <button id='b1' onclick='lw();'>Enter</button>
+        <footer id="f1">
+            <p>Created By:- Gaurav Singh</p>
+            <p><a href="https://www.linkedin.com/in/gaurav-singh-62ba711b1/">LinkedIn</a>  <a href="github_url">GitHub</a></p>
+        </footer>
+	</body>
+
+<style>
+
+    footer#f1 {
+        bottom: 0;
+        position: absolute;
+        font-size: 15px;
+    }
+
+	Body {
+		background-image: url("car_lm.jpg");
+        background-size: cover;
+		}
+
+	div#d1 {
+        padding-top: 9%;
+		font-size: 20px;
+		color: rgb(5, 5, 5);
+		text-indent: 10%;
+		font-weight: bolder;
+		font-family: "Trirong", serif;
+		margin-top: 80px;
+		}
+	textarea#t1 {
+		font-weight: bold;
+		height: 30%;
+		width: 40%;
+		margin-left: 7%;
+  		border: 10px solid transparent;
+  		padding: 15px;
+  		border-image: linear-gradient(#000000, #ffffff) 30;
+	}
+
+	button {
+
+		font-family: myFirstFont;
+		background-color: rgb(255, 255, 255);
+		src: url(sansation_bold.woff);
+		font-weight: bold;
+		text-align: center;
+		border-radius: 8px;
+		font-size: 20px;
+		height: 35px;
+		width: 150px;
+		margin-left: 400px;
+		border: 2px solid black;
+		cursor: pointer;
+	}
+	button:hover {background-color: rgb(121, 238, 166)}
+	button:active {
+		background-color: #3dc6d8;
+		box-shadow: 0 5px rgb(139, 182, 238);
+		transform: translateY(4px);
+	}
+
+
+	input#in1[type=text] {
+		font-weight: bold;
+		width: 30%;
+		height: 5%;
+		border-bottom: 3px solid #555;
+		border-radius: 8px;
+		box-sizing: border-box;
+		resize: vertical;
+	}
+</style>
+
+</html>
+
+<script>
+	function lw() 
+	{
+		var i = document.getElementById('in1').value;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'http://192.168.43.55/cgi-bin/car_details.py?x='+i, true);
+		xhr.send();
+
+		// output from GUI
+		xhr.onload = function() {
+			var output = xhr.responseText;
+			document.getElementById("t1").innerHTML = output;
+		}
+
+	}
+</script>
