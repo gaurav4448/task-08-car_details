@@ -1,0 +1,4 @@
+This task is an integration of lot of technologies like Python programming language, Linux, HTML, JavaScript, CSS, CNN and Object Detection.
+
+In this, we are using opencv to retreive the number from the image of the car with its number plate. 
+And then we use the output to find the information of the car using an API retreiving theoutput from Linux OS.
